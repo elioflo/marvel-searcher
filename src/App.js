@@ -1,11 +1,12 @@
 import CharactersList from './components/CharactersList'
+import MarvelHeader from './components/MarvelHeader'
 import useCharacters from './hooks/useCharacters'
 
 function App () {
   const [characters, isLoading] = useCharacters()
   return (
     <div className='App'>
-      <h1>Render list: </h1>
+      <MarvelHeader />
       {isLoading ? <div>Loading...</div> : <CharactersList characters={characters} />}
     </div>
   )
