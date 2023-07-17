@@ -1,29 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import ComicList from './ComicsList'
 
-const CharacterCard = ({ name, thumbnail }) => {
-  console.log(thumbnail)
-  const imgUrl = `${thumbnail.path}.${thumbnail.extension}`
-  const Card = styled.div`
+const Card = styled.div`
     box-sizing: border-box;
     width: 250px;
     position: relative;
     border-radius: .25rem; 
     `
-  const CharacterImage = styled.img`
+const CharacterImage = styled.img`
     width: 100%;
     border-radius: .25rem; 
   `
-  const CharacterName = styled.h1`
+const CharacterName = styled.h1`
     color: white;
     position: absolute;
     bottom: 0;
     left: 1rem;
   `
+
+const CharacterCard = ({ character }) => {
+  const [click, setClick] = useState(false)
+  const imgUrl = `${character.thumbnail.path}.${character.thumbnail.extension}`
   return (
-    <Card>
-      <CharacterName>{name}</CharacterName>
+    <Card onClick={() => setClick(!click)}>
+      <CharacterName>{character.name}</CharacterName>
       <CharacterImage src={imgUrl} />
+      {click && <ComicList comics={character.comics.items} />}
     </Card>
   )
 }
