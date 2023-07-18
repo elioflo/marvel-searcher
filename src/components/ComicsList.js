@@ -5,7 +5,7 @@ const ComicList = ({ comics = [] }) => {
   console.log(comics)
   return (
     <div>
-      {comics.map(comic => <Comic comic={comic} key={comic.name} />)}
+      {comics.map(comic => <Comic comic={comic} key={comic.id} />)}
     </div>
   )
 }
