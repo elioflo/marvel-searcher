@@ -6,6 +6,7 @@ const CardList = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
+    position: relative;
   `
 
 const CharactersList = ({ characters = [] }) => {

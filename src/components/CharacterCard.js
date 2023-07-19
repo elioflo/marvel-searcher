@@ -38,11 +38,13 @@ const CharacterCard = ({ character }) => {
   }, [])
 
   return (
-    <Card onClick={() => setClick(true)}>
-      <CharacterName>{character.name}</CharacterName>
-      <CharacterImage src={imgUrl} />
-      {click && <ComicList comics={comics.data.data.results} />}
-    </Card>
+    <>
+      <Card onClick={() => setClick(true)}>
+        <CharacterName>{character.name}</CharacterName>
+        <CharacterImage src={imgUrl} />
+      </Card>
+      {click && <ComicList comics={comics.data.data.results} close={() => setClick(false)} />}
+    </>
   )
 }
 
