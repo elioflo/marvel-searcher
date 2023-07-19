@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
 const ImageItem = styled.img`
@@ -24,13 +25,17 @@ const Description = styled.p`
 `
 
 const ComicItem = ({ comic }) => {
+  console.log(comic)
   return (
     <Item>
-      {comic.images.length && <ImageItem src={`${comic.images[0].path}.${comic.images[0].extension}`} />}
-      <TextItem>
-        <Title>{comic.title}</Title>
-        <Description>{comic.description}</Description>
-      </TextItem>
+      <Link to={`comic/${comic.id}`}>
+
+        {comic.images.length && <ImageItem src={`${comic.images[0].path}.${comic.images[0].extension}`} />}
+        <TextItem>
+          <Title>{comic.title}</Title>
+          <Description>{comic.description}</Description>
+        </TextItem>
+      </Link>
     </Item>
   )
 }

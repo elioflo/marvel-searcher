@@ -6,12 +6,18 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import Root, { loader as rootLoader } from './routes/root'
+import Comic, { loader as comicLoader } from './routes/comic'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
     loader: rootLoader
+  },
+  {
+    path: '/comic/:comicId',
+    element: <Comic />,
+    loader: comicLoader
   }
 ])
 
