@@ -5,24 +5,54 @@ import getComics from '../comics'
 
 const Background = styled.div`
   position: absolute;
-  background-color: red;
-  z-index: 99;
+  background-color: rgba(0,0,0,.25);
+  z-index: 90;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top:0;
 `
 
 const Container = styled.div`
-  background-color: grey;
-  display: flex;
-  flex-direction: column;
+  width: calc(100% - 2rem);
+  margin: auto;
+  background-color: white;
+  max-width: 30rem;
+  max-height: 30rem;
+  border-radius: .25rem;
+  color: #505050;
+  display: grid;
+  grid-template-rows: auto 1fr;
 `
 
 const CloseButton = styled.button`
-  margin-left: auto;
+  border: none;
+  background-color: white;
+  font-size: 1.25rem;
+  color: #505050;
 `
 
-const ComicList = ({ characterId, close }) => {
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 2rem);
+  margin: auto;
+`
+
+const Name = styled.h1`
+  font-family: sans-serif;
+  margin: .75rem 0;
+`
+
+const List = styled.div`
+  overflow-y: scroll;
+  overflow-x: hidden;
+`
+
+const ComicList = ({ name, characterId, close }) => {
   const [comics, setComics] = useState(null)
   useEffect(() => {
     const fetchData = async () => {
@@ -39,8 +69,13 @@ const ComicList = ({ characterId, close }) => {
   return (
     <Background>
       <Container>
-        <CloseButton onClick={close}>CERRAR</CloseButton>
-        {comics && comics.data.data.results.length > 0 && comics.data.data.results.map(comic => <ComicItem comic={comic} key={comic.id} />)}
+        <Header>
+          <Name>{name}</Name>
+          <CloseButton onClick={close}>X</CloseButton>
+        </Header>
+        <List>
+          {comics && comics.data.data.results.length > 0 && comics.data.data.results.map(comic => <ComicItem comic={comic} key={comic.id} />)}
+        </List>
       </Container>
     </Background>
   )

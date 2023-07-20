@@ -45,7 +45,7 @@ const CharacterCard = ({ character }) => {
         <CharacterName>{character.name}</CharacterName>
         <CharacterImage src={imgUrl} />
       </Card>
-      {click && <ComicList characterId={character.id} close={() => setClick(false)} />}
+      {click && <ComicList name={character.name} characterId={character.id} close={() => setClick(false)} />}
     </>
   )
 }
