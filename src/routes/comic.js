@@ -1,8 +1,8 @@
 import { useLoaderData } from 'react-router-dom'
-import getComic from '../comic'
 import Comic from '../components/Comic'
 import SearchBar from '../components/SearchBar'
 import { styled } from 'styled-components'
+import getComic from '../api/comic'
 
 export async function loader ({ params }) {
   const comic = await getComic(params.comicId)

@@ -8,12 +8,14 @@ import {
 import Root, { loader as rootLoader } from './routes/root'
 import Comic, { loader as comicLoader } from './routes/comic'
 import './index.css'
+import ErrorPage from './routes/error-page'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    loader: rootLoader
+    loader: rootLoader,
+    errorElement: <ErrorPage />
   },
   {
     path: '/comic/:comicId',
@@ -25,7 +27,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    {/* <SearchBar /> */}
     <RouterProvider router={router} />
   </React.StrictMode>
 )

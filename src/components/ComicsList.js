@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ComicItem from './ComicItem'
 import { styled } from 'styled-components'
-import getComics from '../comics'
+import getComics from '../api/comics'
 
 const Background = styled.div`
   position: fixed;

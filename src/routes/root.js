@@ -1,5 +1,5 @@
 import { useLoaderData } from 'react-router-dom'
-import getCharacters from '../characters'
+import getCharacters from '../api/characters'
 import CharactersList from '../components/CharactersList'
 import SearchBar from '../components/SearchBar'
 import { styled } from 'styled-components'
