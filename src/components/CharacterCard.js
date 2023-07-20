@@ -31,8 +31,7 @@ const DarkBackground = styled.div`
     width: 100%;
     height: 100%;
     background: linear-gradient(45deg, black, transparent, transparent, black);
-    border-bottom-right-radius: 0.25rem; 
-    border-bottom-left-radius: 0.25rem; 
+    border-radius: 0.25rem; 
   `
 
 const CharacterCard = ({ character }) => {

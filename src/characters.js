@@ -11,7 +11,7 @@ export default async function getCharacters (params) {
       console.log(response)
       return response
     } else {
-      const response = axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=8&ts=${ts}&apikey=${apikey}&hash=${hash}`)
+      const response = axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${apikey}&hash=${hash}`)
       return response
     }
   } catch (error) {

@@ -8,16 +8,18 @@ const Container = styled.div`
     align-items: center;
     gap: .5rem;
     position: relative;
-    background-color: rgba(215,228,247,.5);
-    padding: 3rem 0;
+    background-color: rgba(215,228,247,.25);
+    min-height: 100vh;
   `
 
 const CardList = styled.div`
+  margin-top: 2.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   max-width: 65rem;
   gap: 1.5rem;
+  padding: 2.5rem 0;
   `
 
 const CharactersList = ({ characters = [] }) => {

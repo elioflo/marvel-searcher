@@ -14,8 +14,6 @@ export async function loader ({ request }) {
 const Container = styled.div`
   min-height: 100vh;
   box-sizing: border-box;
-  display: grid;
-  grid-template-rows: auto 1fr;
 `
 
 export default function Root () {
