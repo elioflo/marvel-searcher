@@ -1,4 +1,4 @@
-import { Form } from 'react-router-dom'
+import { Form, Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
@@ -40,7 +40,9 @@ export default function SearchBar () {
   return (
     <Container>
       <Header>
-        <Logo src='/marvel-logo.svg' />
+        <Link to='/'>
+          <Logo src='/marvel-logo.svg' />
+        </Link>
         <Form method='get' action='/'>
           <SearchText type='text' name='search' />
         </Form>
