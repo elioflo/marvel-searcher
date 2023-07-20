@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ComicItem from './ComicItem'
 import { styled } from 'styled-components'
+import getComics from '../comics'
 
 const Background = styled.div`
   position: absolute;
@@ -21,13 +22,25 @@ const CloseButton = styled.button`
   margin-left: auto;
 `
 
-const ComicList = ({ comics = [], close }) => {
-  console.log(comics)
+const ComicList = ({ characterId, close }) => {
+  const [comics, setComics] = useState(null)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getComics(characterId)
+        setComics(response)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData()
+    console.log(comics)
+  }, [])
   return (
     <Background>
       <Container>
         <CloseButton onClick={close}>CERRAR</CloseButton>
-        {comics.map(comic => <ComicItem comic={comic} key={comic.id} />)}
+        {comics && comics.data.data.results.length > 0 && comics.data.data.results.map(comic => <ComicItem comic={comic} key={comic.id} />)}
       </Container>
     </Background>
   )

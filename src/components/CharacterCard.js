@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ComicList from './ComicsList'
-import getComics from '../comics'
 
 const Card = styled.div`
     box-sizing: border-box;
@@ -22,20 +21,7 @@ const CharacterName = styled.h1`
 
 const CharacterCard = ({ character }) => {
   const [click, setClick] = useState(false)
-  const [comics, setComics] = useState({})
   const imgUrl = `${character.thumbnail.path}.${character.thumbnail.extension}`
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getComics(character.id)
-        setComics(response)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchData()
-  }, [])
 
   return (
     <>
@@ -43,7 +29,7 @@ const CharacterCard = ({ character }) => {
         <CharacterName>{character.name}</CharacterName>
         <CharacterImage src={imgUrl} />
       </Card>
-      {click && <ComicList comics={comics.data.data.results} close={() => setClick(false)} />}
+      {click && <ComicList characterId={character.id} close={() => setClick(false)} />}
     </>
   )
 }

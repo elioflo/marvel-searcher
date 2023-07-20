@@ -33,7 +33,6 @@ function App () {
     axios.get('https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=77f6724f54e61f81c5c57baa0aa7e913&hash=55c06b5e56fcd9a8d8c389f167d476f1')
       .then(resolve => {
         setPersonajes(resolve.data)
-        console.log(resolve.data)
       }).catch(error => console.log(error))
   }, [])
   return <div>{JSON.stringify(personajes)}</div>

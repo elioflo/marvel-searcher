@@ -25,11 +25,9 @@ const Description = styled.p`
 `
 
 const ComicItem = ({ comic }) => {
-  console.log(comic)
   return (
     <Item>
       <Link to={`comic/${comic.id}`}>
-
         {comic.images.length && <ImageItem src={`${comic.images[0].path}.${comic.images[0].extension}`} />}
         <TextItem>
           <Title>{comic.title}</Title>
