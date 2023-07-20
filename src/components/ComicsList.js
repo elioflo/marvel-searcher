@@ -4,7 +4,7 @@ import { styled } from 'styled-components'
 import getComics from '../comics'
 
 const Background = styled.div`
-  position: absolute;
+  position: fixed;
   background-color: rgba(0,0,0,.25);
   z-index: 90;
   width: 100vw;
@@ -13,6 +13,7 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
   top:0;
+  left: 0;
 `
 
 const Container = styled.div`
@@ -50,6 +51,21 @@ const Name = styled.h1`
 const List = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #6d6d6d; 
+  }
 `
 
 const ComicList = ({ name, characterId, close }) => {
