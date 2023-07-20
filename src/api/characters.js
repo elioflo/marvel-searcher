@@ -5,15 +5,21 @@ export default async function getCharacters (params) {
   const hash = process.env.REACT_APP_MD5HASH
   const ts = process.env.REACT_APP_TS
   try {
-    if (params.size > 0 && params.get('search')) {
-      console.log(params.get('search'))
-      const response = axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${apikey}&hash=${hash}&nameStartsWith=${params.get('search')}`)
-      console.log(response)
-      return response
-    } else {
-      const response = axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${apikey}&hash=${hash}`)
-      return response
+    if (params.size > 0) {
+      if (params.get('search')) {
+        const response = axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${apikey}&hash=${hash}&nameStartsWith=${params.get('search')}`)
+        return response
+      }
+
+      if (params.get('character')) {
+        const response = axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${apikey}&hash=${hash}&nameStartsWith=${params.get('character')}`)
+        return response
+      }
     }
+    const random = Math.ceil(Math.random() * 1001)
+    console.log(random)
+    const response = axios.get(`https://gateway.marvel.com:443/v1/public/characters?offset=${random}&ts=${ts}&apikey=${apikey}&hash=${hash}`)
+    return response
   } catch (error) {
     console.log(error)
   }
