@@ -40,11 +40,11 @@ export default function SearchBar () {
   return (
     <Container>
       <Header>
-        <Logo src='marvel-logo.svg' />
+        <Logo src='/marvel-logo.svg' />
         <Form method='get' action='/'>
           <SearchText type='text' name='search' />
         </Form>
-        <Star src='star.svg' />
+        <Star src='/star.svg' />
       </Header>
     </Container>
   )
