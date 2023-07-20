@@ -1,6 +1,8 @@
 import { useLoaderData } from 'react-router-dom'
 import getCharacters from '../characters'
 import CharactersList from '../components/CharactersList'
+import SearchBar from '../components/SearchBar'
+import { styled } from 'styled-components'
 
 export async function loader ({ request }) {
   const query = request.url.split('?')[1]
@@ -9,9 +11,19 @@ export async function loader ({ request }) {
   return { characters }
 }
 
+const Container = styled.div`
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto 1fr;
+`
+
 export default function Root () {
   const { characters } = useLoaderData()
   return (
-    <CharactersList characters={characters.data.data.results} />
+    <Container>
+      <SearchBar />
+      <CharactersList characters={characters.data.data.results} />
+    </Container>
   )
 }

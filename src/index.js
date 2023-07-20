@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import Root, { loader as rootLoader } from './routes/root'
 import Comic, { loader as comicLoader } from './routes/comic'
+import './index.css'
 
 const router = createBrowserRouter([
   {
