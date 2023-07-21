@@ -46,7 +46,9 @@ export default function SearchBar () {
         <Form method='get' action='/'>
           <SearchText type='text' name='search' />
         </Form>
-        <Star src='/star.svg' />
+        <Link to='/favorites'>
+          <Star src='/star.svg' />
+        </Link>
       </Header>
     </Container>
   )

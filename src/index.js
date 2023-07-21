@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom'
-import Root, { loader as rootLoader } from './routes/root'
+import Root, { favoritesLoader, loader as rootLoader } from './routes/root'
 import Comic, { loader as comicLoader } from './routes/comic'
 import './index.css'
 import ErrorPage from './routes/error-page'
@@ -21,6 +21,11 @@ const router = createBrowserRouter([
     path: '/comic/:comicId',
     element: <Comic />,
     loader: comicLoader
+  },
+  {
+    path: '/favorites',
+    element: <Root />,
+    loader: favoritesLoader
   }
 ])
 

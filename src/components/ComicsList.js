@@ -80,7 +80,6 @@ const ComicList = ({ name, characterId, close }) => {
       }
     }
     fetchData()
-    console.log(comics)
   }, [])
   return (
     <Background>

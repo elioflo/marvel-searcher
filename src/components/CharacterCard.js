@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ComicList from './ComicsList'
+import Star from './Star'
 
 const Card = styled.div`
     box-sizing: border-box;
@@ -40,9 +41,10 @@ const CharacterCard = ({ character }) => {
 
   return (
     <>
-      <Card onClick={() => setClick(true)}>
+      <Card>
         <DarkBackground />
-        <CharacterName>{character.name}</CharacterName>
+        <CharacterName onClick={() => setClick(true)}>{character.name}</CharacterName>
+        <Star character={character} />
         <CharacterImage src={imgUrl} />
       </Card>
       {click && <ComicList name={character.name} characterId={character.id} close={() => setClick(false)} />}

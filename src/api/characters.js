@@ -17,7 +17,6 @@ export default async function getCharacters (params) {
       }
     }
     const random = Math.ceil(Math.random() * 1001)
-    console.log(random)
     const response = axios.get(`https://gateway.marvel.com:443/v1/public/characters?offset=${random}&ts=${ts}&apikey=${apikey}&hash=${hash}`)
     return response
   } catch (error) {
